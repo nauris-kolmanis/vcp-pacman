@@ -3,13 +3,8 @@ TODO
 - Images
 - Character selection
 
-Original README:
-JavaScript/HTML5 remake of the Pacman
+JavaScript/HTML5 remake of the Pacman (forked from [https://github.com/newagebegins/pacman](https://github.com/newagebegins/pacman))
 =====================================
 
-[Play](http://newagebegins.github.com/pacman/Pacman.html)  
-[Run tests](http://newagebegins.github.com/pacman/SpecRunner.html)
-
-The code was written with TDD (Test-Driven Development) methodology.
-
-![Screenshot of the Pacman game](screenshot.jpg)
+[Play](http://nauris-kolmanis.github.com/vcp-pacman/Pacman.html)  
+[Run tests](http://nauris-kolmanis.github.com/vcp-pacman/SpecRunner.html)
