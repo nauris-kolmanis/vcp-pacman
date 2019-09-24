@@ -165,7 +165,7 @@ Pacman.prototype.draw = function (ctx) {
   
   var x = this._scene.getX() + this.getX();
   var y = this._scene.getY() + this.getY();
-  ctx.drawImage(ImageManager.getImage(this.getCurrentFrame()), x, y);
+  ImageManager.drawImage(ctx, this.getCurrentFrame(), x, y);
 };
 
 Pacman.prototype.getCurrentFrame = function () {

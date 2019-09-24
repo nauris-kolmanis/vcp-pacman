@@ -87,12 +87,12 @@ Cherry.prototype.draw = function (ctx) {
   
   if (this.isEaten()) {
     ctx.fillStyle = "#2abac0";
-    ctx.font = "bold 12px 'Lucida Console', Monaco, monospace"
+    ctx.font = `bold ${calculateScale(12)}px 'Lucida Console', Monaco, monospace`
     x -= 4;
     y += 12;
     ctx.fillText(CHERRY_VALUE, x, y);
   }
   else {
-    ctx.drawImage(ImageManager.getImage('cherry'), x, y);
+    ImageManager.drawImage(ctx, 'cherry', x, y);
   }
 };

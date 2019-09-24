@@ -1,4 +1,4 @@
-var TILE_SIZE = 16;
+var TILE_SIZE = calculateScale(16);
 
 var EVENT_PLAYSCENE_READY = 'EVENT_PLAYSCENE_READY';
 
@@ -14,15 +14,15 @@ function PlayScene(game, maps) {
   
   this._pacman = new Pacman(this, game);
   this._pacman.setStrategy(new PacmanPlaySceneStrategy(this._pacman, this));
-  this._pacman.setSpeed(4);
+  this._pacman.setSpeed(calculateSpeed(4));
   this._pacman.requestNewDirection(DIRECTION_RIGHT);
   
   this._currentLevel = 1;
   this.loadMap(this._getMapForCurrentLevel());
   
   this._score = 0;
-  this._x = 50;
-  this._y = 50;
+  this._x = calculateScale(50)
+  this._y = calculateScale(50)
   
   this.setGhostScoreValue(200);
   this._pointsMessage = new PointsMessage(this);
@@ -81,21 +81,21 @@ PlayScene.prototype.draw = function (ctx) {
 };
 
 PlayScene.prototype._drawScore = function (ctx) {
-  var SCORE_X = 55;
-  var SCORE_Y = 30;
+  var SCORE_X = calculateScale(55)
+  var SCORE_Y = calculateScale(30)
   ctx.fillStyle = "#dedede";
-  ctx.font = "bold 14px 'Lucida Console', Monaco, monospace"
+  ctx.font = `bold ${calculateScale(14)}px 'Lucida Console', Monaco, monospace`
   var text = "SCORE: " + this._score;
   ctx.fillText(text, SCORE_X, SCORE_Y);
 };
 
 PlayScene.prototype._drawLives = function (ctx) {
-  var x = 55;
-  var width = 18
-  var y = 430;
+  var x = calculateScale(55)
+  var width = calculateScale(18)
+  var y = calculateScale(430)
   
   for (var i = 0; i < this._pacman.getLivesCount(); ++i) {
-    ctx.drawImage(ImageManager.getImage('pacman_3l'), x + i * width, y);
+    ImageManager.drawImage(ctx, 'pacman_3l', x + i * width, y);
   }
 };
 

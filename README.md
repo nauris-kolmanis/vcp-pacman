@@ -1,3 +1,9 @@
+TODO
+=====================================
+- Images
+- Character selection
+
+Original README:
 JavaScript/HTML5 remake of the Pacman
 =====================================
 

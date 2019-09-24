@@ -7,9 +7,9 @@ var GHOST_STATE_NORMAL = 'normal';
 var GHOST_STATE_VULNERABLE = 'vulnerable';
 var GHOST_STATE_RUN_HOME = 'run_home';
 
-var GHOST_SPEED_FAST = 8;
-var GHOST_SPEED_NORMAL = 4;
-var GHOST_SPEED_SLOW = 2;
+var GHOST_SPEED_FAST = calculateSpeed(8);
+var GHOST_SPEED_NORMAL = calculateSpeed(4);
+var GHOST_SPEED_SLOW = calculateSpeed(2);
 
 function Ghost(name, scene) {
   this._name = name;
@@ -261,10 +261,10 @@ Ghost.prototype.draw = function (ctx) {
   var y = this._scene.getY() + this.getY();
   
   if (this._state != GHOST_STATE_RUN_HOME) {
-    ctx.drawImage(ImageManager.getImage(this.getCurrentBodyFrame()), x, y);
+    ImageManager.drawImage(ctx, this.getCurrentBodyFrame(), x, y);
   }
   if (this._state != GHOST_STATE_VULNERABLE) {
-    ctx.drawImage(ImageManager.getImage(this.getCurrentEyesFrame()), x, y);
+    ImageManager.drawImage(ctx, this.getCurrentEyesFrame(), x, y);
   }
 };
 

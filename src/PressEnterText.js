@@ -12,7 +12,7 @@ PressEnterText.prototype.draw = function (ctx) {
   }
   
   ctx.fillStyle = "red";
-  ctx.font = "bold 18px 'Lucida Console', Monaco, monospace"
+  ctx.font = `bold ${calculateScale(18)}px 'Lucida Console', Monaco, monospace`
   var text = "PRESS ENTER";
   var textWidth = ctx.measureText(text).width;
   // Draw text in the center of the canvas.

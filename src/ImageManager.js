@@ -75,6 +75,10 @@ var ImageManager = (function() {
   return {
     getImage: function (name) {
       return images[name];
+    },
+    drawImage: function (ctx, name, x, y) {
+      var image = this.getImage(name);
+      ctx.drawImage(image, x, y, calculateScale(image.width), calculateScale(image.height));
     }
   };
 })();

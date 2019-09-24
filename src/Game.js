@@ -1,3 +1,8 @@
+var BASE_WIDTH = 540;
+var BASE_HEIGHT = 484;
+var SCALE_RATIO = window.innerWidth < window.innerHeight ? window.innerWidth / BASE_WIDTH : window.innerHeight / BASE_HEIGHT;
+var SPEED_RATIO = SCALE_RATIO;
+
 function Game() {
   this._scene = new StartupScene(this);
   this._eventManager = new EventManager();

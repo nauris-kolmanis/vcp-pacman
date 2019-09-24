@@ -4,9 +4,9 @@ function StartupScene(game) {
   
   this._pacman = new Pacman(this, game);
   this._pacman.setStrategy(new PacmanStartupSceneStrategy(this._pacman, this));
-  this._pacman.setCurrentSpeed(4);
-  this._pacman.setSpeed(4);
-  this._pacman.setPosition(new Position(90, 160));
+  this._pacman.setCurrentSpeed(calculateSpeed(4));
+  this._pacman.setSpeed(calculateSpeed(4));
+  this._pacman.setPosition(new Position(calculateScale(90), calculateScale(160)));
   this._pacman.setDirection(DIRECTION_RIGHT);
 }
 
@@ -38,12 +38,12 @@ StartupScene.prototype.getY = function () {
 
 StartupScene.prototype._drawTitle = function (ctx) {
   ctx.fillStyle = "#ffff00";
-  ctx.font = "bold 90px 'Lucida Console', Monaco, monospace"
-  ctx.fillText("PAC-MAN", 76, 150);
+  ctx.font = `bold ${calculateScale(70)}px 'Lucida Console', Monaco, monospace`
+  ctx.fillText("VCPac-man", calculateScale(76), calculateScale(150));
 };
 
 StartupScene.prototype._drawControlsHelp = function (ctx) {
   ctx.fillStyle = "#dedede";
-  ctx.font = "bold 14px 'Lucida Console', Monaco, monospace"
-  ctx.fillText("CONTROL: ARROW KEYS", 187, 300);
+  ctx.font = `bold ${calculateScale(14)}px 'Lucida Console', Monaco, monospace`
+  ctx.fillText("CONTROL: ARROW KEYS", calculateScale(187), calculateScale(300));
 };

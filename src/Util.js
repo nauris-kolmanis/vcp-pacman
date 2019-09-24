@@ -8,3 +8,11 @@ function getRandomElementFromArray(arr) {
 function getRandomInt(min, max) {  
   return Math.floor(Math.random() * (max - min + 1)) + min;  
 }
+
+function calculateScale(number) {
+  return Math.floor(number * SCALE_RATIO);
+}
+
+function calculateSpeed(number) {
+  return Math.floor(number * SPEED_RATIO);
+}

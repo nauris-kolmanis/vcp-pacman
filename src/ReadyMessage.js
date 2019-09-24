@@ -39,6 +39,6 @@ ReadyMessage.prototype.draw = function (ctx) {
   }
   
   ctx.fillStyle = "#ffff00";
-  ctx.font = "bold 18px 'Lucida Console', Monaco, monospace"
-  ctx.fillText("READY!", 234, 273);
+  ctx.font = `bold ${calculateScale(18)}px 'Lucida Console', Monaco, monospace`
+  ctx.fillText("READY!", calculateScale(234), calculateScale(273));
 };

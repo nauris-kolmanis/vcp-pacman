@@ -1,5 +1,5 @@
-var PELLET_SIZE = 2;
-var PELLET_POSITION_CORRECTION = 7;
+var PELLET_SIZE = calculateScale(2);
+var PELLET_POSITION_CORRECTION = calculateScale(7)
 
 function Pellet(scene) {
   this._scene = scene;
@@ -18,7 +18,7 @@ Pellet.prototype.draw = function (ctx) {
   var x = this._scene.getX() + this.getX() - PELLET_POSITION_CORRECTION;
   var y = this._scene.getY() + this.getY() - PELLET_POSITION_CORRECTION;
   
-  ctx.drawImage(ImageManager.getImage('pellet'), x, y);
+  ImageManager.drawImage(ctx, 'pellet', x, y);
 };
 
 

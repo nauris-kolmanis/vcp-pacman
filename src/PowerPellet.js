@@ -32,7 +32,7 @@ PowerPellet.prototype.draw = function (ctx) {
   var x = this._scene.getX() + this.getX();
   var y = this._scene.getY() + this.getY();
   
-  ctx.drawImage(ImageManager.getImage('power_pellet'), x, y);
+  ImageManager.drawImage(ctx, 'power_pellet', x, y);
 };
 
 
