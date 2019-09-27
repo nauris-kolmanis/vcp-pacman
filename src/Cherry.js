@@ -93,6 +93,6 @@ Cherry.prototype.draw = function (ctx) {
     ctx.fillText(CHERRY_VALUE, x, y);
   }
   else {
-    ImageManager.drawImage(ctx, 'cherry', x, y);
+    ImageManager.drawImage(ctx, 'cherry', x, y, this._scene);
   }
 };

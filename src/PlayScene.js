@@ -2,9 +2,10 @@ var TILE_SIZE = calculateScale(16);
 
 var EVENT_PLAYSCENE_READY = 'EVENT_PLAYSCENE_READY';
 
-function PlayScene(game, maps) {
+function PlayScene(game, maps, imageSet) {
   this._game = game;
   this._maps = maps || this._getDefaultMaps();
+  this._imageSet = imageSet;
   
   this._readyMessage = new ReadyMessage();
   this._readyMessage.setVisibilityDuration(READY_MESSAGE_DURATION_LONG);
@@ -95,7 +96,7 @@ PlayScene.prototype._drawLives = function (ctx) {
   var y = calculateScale(430)
   
   for (var i = 0; i < this._pacman.getLivesCount(); ++i) {
-    ImageManager.drawImage(ctx, 'pacman_3l', x + i * width, y);
+    ImageManager.drawImage(ctx, 'pacman_3l', x + i * width, y, this._scene);
   }
 };
 

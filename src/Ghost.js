@@ -261,10 +261,10 @@ Ghost.prototype.draw = function (ctx) {
   var y = this._scene.getY() + this.getY();
   
   if (this._state != GHOST_STATE_RUN_HOME) {
-    ImageManager.drawImage(ctx, this.getCurrentBodyFrame(), x, y);
+    ImageManager.drawImage(ctx, this.getCurrentBodyFrame(), x, y, this._scene);
   }
   if (this._state != GHOST_STATE_VULNERABLE) {
-    ImageManager.drawImage(ctx, this.getCurrentEyesFrame(), x, y);
+    ImageManager.drawImage(ctx, this.getCurrentEyesFrame(), x, y, this._scene);
   }
 };
 

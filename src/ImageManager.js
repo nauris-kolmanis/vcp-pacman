@@ -1,84 +1,138 @@
+var CUSTOMIZED_IMAGE_PREFIX = 'VCP';
+
 var ImageManager = (function() {
-  var images = {
-    wall_h: null,
-    wall_v: null,
-    wall_tlc: null,
-    wall_trc: null,
-    wall_blc: null,
-    wall_brc: null,
-    wall_t: null,
-    wall_b: null,
-    wall_l: null,
-    wall_r: null,
-    wall_mt: null,
-    wall_mb: null,
-    wall_ml: null,
-    wall_mr: null,
+  var images = {};
+
+  var names = [
+   'wall_h',
+   'wall_v',
+   'wall_tlc',
+   'wall_trc',
+   'wall_blc',
+   'wall_brc',
+   'wall_t',
+   'wall_b',
+   'wall_l',
+   'wall_r',
+   'wall_mt',
+   'wall_mb',
+   'wall_ml',
+   'wall_mr',
     
-    pacman_1: null,
-    pacman_2l: null,
-    pacman_3l: null,
-    pacman_2r: null,
-    pacman_3r: null,
-    pacman_2u: null,
-    pacman_3u: null,
-    pacman_2d: null,
-    pacman_3d: null,
+   'pacman_1',
+   'pacman_2l',
+   'pacman_3l',
+   'pacman_2r',
+   'pacman_3r',
+   'pacman_2u',
+   'pacman_3u',
+   'pacman_2d',
+   'pacman_3d',
     
-    pacman_dies_1: null,
-    pacman_dies_2: null,
-    pacman_dies_3: null,
-    pacman_dies_4: null,
-    pacman_dies_5: null,
-    pacman_dies_6: null,
-    pacman_dies_7: null,
-    pacman_dies_8: null,
-    pacman_dies_9: null,
-    pacman_dies_10: null,
-    pacman_dies_11: null,
-    pacman_dies_12: null,
+   'pacman_dies_1',
+   'pacman_dies_2',
+   'pacman_dies_3',
+   'pacman_dies_4',
+   'pacman_dies_5',
+   'pacman_dies_6',
+   'pacman_dies_7',
+   'pacman_dies_8',
+   'pacman_dies_9',
+   'pacman_dies_10',
+   'pacman_dies_11',
+   'pacman_dies_12',
     
-    blinky_1: null,
-    blinky_2: null,
+   'blinky_1',
+   'blinky_2',
     
-    pinky_1: null,
-    pinky_2: null,
+   'pinky_1',
+   'pinky_2',
     
-    inky_1: null,
-    inky_2: null,
+   'inky_1',
+   'inky_2',
     
-    clyde_1: null,
-    clyde_2: null,
+   'clyde_1',
+   'clyde_2',
     
-    vulnerable_1: null,
-    vulnerable_2: null,
-    vulnerable_1b: null,
-    vulnerable_2b: null,
+   'vulnerable_1',
+   'vulnerable_2',
+   'vulnerable_1b',
+   'vulnerable_2b',
     
-    eyes_l: null,
-    eyes_r: null,
-    eyes_u: null,
-    eyes_d: null,
+   'eyes_l',
+   'eyes_r',
+   'eyes_u',
+   'eyes_d',
     
-    pellet: null,
-    power_pellet: null,
+   'pellet',
+   'power_pellet',
     
-    cherry: null
-  };
-  
-  for (var i in images) {
-    var img = new Image();
-    img.src = 'images/' + i + '.png';
-    images[i] = img;
+   'cherry',
+  ];
+
+  for (var i in names) {
+    var name = names[i];
+
+    names.push(`${CUSTOMIZED_IMAGE_PREFIX}_${name}`);
+
+    for (var j in IMAGESET_MAP) {
+      names.push(`${CUSTOMIZED_IMAGE_PREFIX}_${IMAGESET_MAP[j]}_${name}`);
+    }
   }
   
   return {
+    preloadImages: function (onload) {
+      var numProcessed = 0;
+      for (var i in names) {
+        var name = names[i];
+
+        var img = new Image();
+        img.onload = function (event) {
+          numProcessed++;
+          images[event.target.id] = event.target;
+          if (numProcessed === names.length) {
+            onload();
+          }
+        };
+        img.onerror = function () {
+          numProcessed++;
+          if (numProcessed === names.length) {
+            onload();
+          }
+        }
+        img.id = name;
+        img.src = `images/${name}.png`;
+      }
+    },
+
     getImage: function (name) {
       return images[name];
     },
-    drawImage: function (ctx, name, x, y) {
-      var image = this.getImage(name);
-      ctx.drawImage(image, x, y, calculateScale(image.width), calculateScale(image.height));
+
+    getCustomizedImage: function (name, scene) {
+      var customizedName = scene && scene._imageSet ? `${CUSTOMIZED_IMAGE_PREFIX}_${scene._imageSet}_${name}` : null;
+
+      if (customizedName !== null && images.hasOwnProperty(customizedName)) {
+        return images[customizedName];
+      }
+
+      customizedName = `${CUSTOMIZED_IMAGE_PREFIX}_${name}`;
+
+      if (images.hasOwnProperty(customizedName)) {
+        return images[customizedName];
+      }
+
+      return null;
+    },
+
+    drawImage: function (ctx, name, x, y, scene) {
+      var originalImage = this.getImage(name);
+      var customizedImage = this.getCustomizedImage(name, scene);
+
+      var width = originalImage.width;
+      var height = originalImage.height;
+
+      ctx.drawImage(customizedImage || originalImage, x, y, calculateScale(width), calculateScale(height));
     }
   };
 })();

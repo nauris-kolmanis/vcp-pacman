@@ -3,6 +3,9 @@ var KEY_LEFT = 37;
 var KEY_UP = 38;
 var KEY_RIGHT = 39;
 var KEY_DOWN = 40;
+var KEY_1 = 49;
+var KEY_2 = 50;
+var KEY_3 = 51;
 
 function Keyboard(game) {
   this._game = game;

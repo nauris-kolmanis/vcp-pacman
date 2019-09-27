@@ -18,7 +18,7 @@ Pellet.prototype.draw = function (ctx) {
   var x = this._scene.getX() + this.getX() - PELLET_POSITION_CORRECTION;
   var y = this._scene.getY() + this.getY() - PELLET_POSITION_CORRECTION;
   
-  ImageManager.drawImage(ctx, 'pellet', x, y);
+  ImageManager.drawImage(ctx, 'pellet', x, y, this._scene);
 };
 
 

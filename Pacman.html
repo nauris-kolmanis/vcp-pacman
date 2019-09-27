@@ -43,7 +43,9 @@
   <script type="text/javascript">
     $(function () {
       var gameRunner = new GameRunner();
-      gameRunner.run();
+      ImageManager.preloadImages(function () {
+        gameRunner.run();
+      });      
     });
   </script>
 </head>

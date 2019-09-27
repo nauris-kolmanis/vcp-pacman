@@ -1,3 +1,8 @@
+var IMAGESET_MAP = [];
+IMAGESET_MAP[KEY_1] = IMAGESET_ANSIS;
+IMAGESET_MAP[KEY_2] = IMAGESET_KRISTINE;
+IMAGESET_MAP[KEY_3] = IMAGESET_EDAVARDI;
+
 function StartupScene(game) {
   this._game = game;
   this._pressEnterText = new PressEnterText();
@@ -13,6 +18,8 @@ function StartupScene(game) {
 StartupScene.prototype.keyPressed = function (key) {
   if (key == KEY_ENTER) {
     this._game.setScene(new PlayScene(this._game));
+  } else if (key == KEY_1 || key == KEY_2 || key == KEY_3) {
+    this._game.setScene(new PlayScene(this._game, null, IMAGESET_MAP[key]));
   }
 };
 

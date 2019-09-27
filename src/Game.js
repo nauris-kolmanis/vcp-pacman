@@ -1,7 +1,12 @@
 var BASE_WIDTH = 540;
 var BASE_HEIGHT = 484;
+
 var SCALE_RATIO = window.innerWidth < window.innerHeight ? window.innerWidth / BASE_WIDTH : window.innerHeight / BASE_HEIGHT;
 var SPEED_RATIO = SCALE_RATIO;
+
+var IMAGESET_ANSIS = 'ansis';
+var IMAGESET_KRISTINE = 'kristine';
+var IMAGESET_EDAVARDI = 'edavardi';
 
 function Game() {
   this._scene = new StartupScene(this);
