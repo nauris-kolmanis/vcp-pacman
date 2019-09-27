@@ -3,6 +3,7 @@ TODO
 - Images
 - Color adjustments
 - Character selection improvements
+- Cycle through image sets in startup scene
 - Fix tests
 
 JavaScript/HTML5 remake of the Pacman

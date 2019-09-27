@@ -6,6 +6,7 @@ IMAGESET_MAP[KEY_3] = IMAGESET_EDAVARDI;
 function StartupScene(game) {
   this._game = game;
   this._pressEnterText = new PressEnterText();
+  this._imageSet = IMAGESET_MAP[KEY_1];
   
   this._pacman = new Pacman(this, game);
   this._pacman.setStrategy(new PacmanStartupSceneStrategy(this._pacman, this));

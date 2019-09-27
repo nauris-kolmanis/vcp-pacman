@@ -96,7 +96,7 @@ PlayScene.prototype._drawLives = function (ctx) {
   var y = calculateScale(430)
   
   for (var i = 0; i < this._pacman.getLivesCount(); ++i) {
-    ImageManager.drawImage(ctx, 'pacman_3l', x + i * width, y, this._scene);
+    ImageManager.drawImage(ctx, 'pacman_3l', x + i * width, y, this);
   }
 };
 
