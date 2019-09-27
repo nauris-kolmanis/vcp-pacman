@@ -2,8 +2,11 @@ var FPS = 24;
 var CANVAS_WIDTH = calculateScale(540);
 var CANVAS_HEIGHT = calculateScale(484);
 
+var DEVICE_RATIO = window.devicePixelRatio;
+
 function GameRunner() {
   this._ctx = this._createCanvasContext();
+  this._ctx.scale(DEVICE_RATIO, DEVICE_RATIO);
   this._game = new Game();
   this._keyboard = new Keyboard(this._game);
   
@@ -23,7 +26,7 @@ GameRunner.prototype.run = function () {
 
 GameRunner.prototype._createCanvasContext = function () {
   var CANVAS_ID = 'canvas';
-  $('<canvas id="' + CANVAS_ID + '" width="' + CANVAS_WIDTH + '" height="' + CANVAS_HEIGHT + '"></canvas>').appendTo('#main');
+  $('<canvas id="' + CANVAS_ID + '" width="' + (CANVAS_WIDTH * DEVICE_RATIO) + '" height="' + (CANVAS_HEIGHT * DEVICE_RATIO) + '" style="width: ' + CANVAS_WIDTH + 'px; height: ' + CANVAS_HEIGHT + 'px;"></canvas>').appendTo('#main');
   var canvas = document.getElementById(CANVAS_ID);
   return canvas.getContext('2d');
 };
