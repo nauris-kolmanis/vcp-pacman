@@ -1,7 +1,8 @@
 TODO
 =====================================
 - Images
-- Character selection
+- Color adjustments
+- Character selection improvements
 - Fix tests
 
 JavaScript/HTML5 remake of the Pacman
