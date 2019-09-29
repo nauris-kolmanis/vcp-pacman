@@ -110,7 +110,7 @@ var ImageManager = (function() {
     },
 
     getCustomizedImage: function (name, scene) {
-      var customizedName = scene && scene._imageSet ? `${CUSTOMIZED_IMAGE_PREFIX}_${scene._imageSet}_${name}` : null;
+      var customizedName = scene._imageSet ? `${CUSTOMIZED_IMAGE_PREFIX}_${scene._imageSet}_${name}` : null;
 
       if (customizedName !== null && images.hasOwnProperty(customizedName)) {
         return images[customizedName];
@@ -118,7 +118,7 @@ var ImageManager = (function() {
 
       customizedName = `${CUSTOMIZED_IMAGE_PREFIX}_${name}`;
 
-      if (images.hasOwnProperty(customizedName)) {
+      if (scene._imageSet && images.hasOwnProperty(customizedName)) {
         return images[customizedName];
       }
 
