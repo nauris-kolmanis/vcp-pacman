@@ -86,7 +86,7 @@ Cherry.prototype.draw = function (ctx) {
   var y = this._scene.getY() + this._rect.getY();
   
   if (this.isEaten()) {
-    ctx.fillStyle = "#2abac0";
+    ctx.fillStyle = "#aaa";
     ctx.font = `bold ${calculateScale(12)}px 'Lucida Console', Monaco, monospace`
     x -= 4;
     y += 12;

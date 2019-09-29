@@ -45,13 +45,13 @@ StartupScene.prototype.getY = function () {
 };
 
 StartupScene.prototype._drawTitle = function (ctx) {
-  ctx.fillStyle = "#ffff00";
+  ctx.fillStyle = "#000";
   ctx.font = `bold ${calculateScale(70)}px 'Lucida Console', Monaco, monospace`
   ctx.fillText("VCPac-man", calculateScale(76), calculateScale(150));
 };
 
 StartupScene.prototype._drawControlsHelp = function (ctx) {
-  ctx.fillStyle = "#dedede";
+  ctx.fillStyle = "#aaa";
   ctx.font = `bold ${calculateScale(14)}px 'Lucida Console', Monaco, monospace`
   ctx.fillText("CONTROL: ARROW KEYS", calculateScale(187), calculateScale(300));
 };

@@ -13,7 +13,7 @@ Gate.prototype.draw = function (ctx) {
   var x = this._scene.getX() + this.getX();
   var y = this._scene.getY() + this.getY();
   
-  ctx.fillStyle = "#ffb8de";
+  ctx.fillStyle = "#aaa";
   ctx.fillRect(x, y, this.getWidth(), this.getHeight());
 };
 

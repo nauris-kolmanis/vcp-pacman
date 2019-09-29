@@ -84,7 +84,7 @@ PlayScene.prototype.draw = function (ctx) {
 PlayScene.prototype._drawScore = function (ctx) {
   var SCORE_X = calculateScale(55)
   var SCORE_Y = calculateScale(30)
-  ctx.fillStyle = "#dedede";
+  ctx.fillStyle = "#aaa";
   ctx.font = `bold ${calculateScale(14)}px 'Lucida Console', Monaco, monospace`
   var text = "SCORE: " + this._score;
   ctx.fillText(text, SCORE_X, SCORE_Y);
@@ -158,12 +158,12 @@ PlayScene.prototype.loadMap = function (map) {
         
         this._cherry.setPosition(position);
       }
-      else if (tile == '1' || tile == '2' || tile == '3' || tile == '4') {
+      else if (tile == '2' || tile == '3' || tile == '4') {
         var name;
-        if (tile == '1') {
-          name = GHOST_BLINKY;
-        }
-        else if (tile == '2') {
+        // if (tile == '1') {
+        //   name = GHOST_BLINKY;
+        // }
+        if (tile == '2') {
           name = GHOST_PINKY;
         }
         else if (tile == '3') {
