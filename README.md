@@ -1,7 +1,6 @@
 TODO
 =====================================
 - Images
-- Color adjustments
 - Character selection improvements
 - Cycle through image sets in startup scene
 - Fix tests
