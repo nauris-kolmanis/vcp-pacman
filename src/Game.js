@@ -2,6 +2,7 @@ var BASE_WIDTH = 540;
 var BASE_HEIGHT = 484;
 
 var SCALE_RATIO = window.innerWidth < window.innerHeight ? window.innerWidth / BASE_WIDTH : window.innerHeight / BASE_HEIGHT;
+SCALE_RATIO = Math.floor(SCALE_RATIO);
 var SPEED_RATIO = SCALE_RATIO;
 
 var IMAGESET_ANSIS = 'ansis';

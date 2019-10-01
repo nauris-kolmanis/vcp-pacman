@@ -10,9 +10,9 @@ function getRandomInt(min, max) {
 }
 
 function calculateScale(number) {
-  return Math.floor(number * SCALE_RATIO);
+  return number * SCALE_RATIO;
 }
 
 function calculateSpeed(number) {
-  return Math.floor(number * SPEED_RATIO);
+  return number * SPEED_RATIO;
 }
