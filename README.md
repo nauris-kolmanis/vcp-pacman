@@ -1,5 +1,6 @@
 TODO
 =====================================
+- Navigation issues due to scaling (or lost ghosts, when eaten)
 - Images
 - Character selection improvements
 - Cycle through image sets in startup scene
