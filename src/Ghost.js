@@ -271,7 +271,7 @@ Ghost.prototype.getCurrentBodyFrame = function () {
   var index = this._bodyFrames[this._bodyFrame];
   var prefix = this._name;
   if (this._state == GHOST_STATE_VULNERABLE) {
-    prefix = 'vulnerable';
+    prefix += '_vulnerable';
   }
   var result = prefix + '_' + index;
   if (this._blink) {
