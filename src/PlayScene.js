@@ -86,7 +86,7 @@ PlayScene.prototype._drawScore = function (ctx) {
   var SCORE_Y = calculateScale(30)
   ctx.fillStyle = "#aaa";
   ctx.font = `${calculateScale(18)}px ${FONT}`
-  var text = "SCORE:    " + this._score;
+  var text = "Punkti:    " + this._score;
   ctx.fillText(text, SCORE_X, SCORE_Y);
 };
 
