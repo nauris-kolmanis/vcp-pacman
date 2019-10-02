@@ -54,7 +54,7 @@ PointsMessage.prototype.draw = function (ctx) {
   }
   
   ctx.fillStyle = "#aaa";
-  ctx.font = `bold ${calculateScale(12)}px 'Lucida Console', Monaco, monospace`
+  ctx.font = `${calculateScale(16)}px ${FONT}`
   var x = this._scene.getX() + this._position.x - 4;
   var y = this._scene.getY() + this._position.y + 12;
   ctx.fillText(this._value, x, y);

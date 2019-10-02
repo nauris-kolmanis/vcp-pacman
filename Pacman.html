@@ -44,8 +44,13 @@
     $(function () {
       var gameRunner = new GameRunner();
       ImageManager.preloadImages(function () {
-        gameRunner.run();
-      });      
+        var font = new FontFace('ArcadeClassic', 'url(fonts/arcadeclassic.ttf)');
+
+        font.load().then(function (loadedFont) {
+          document.fonts.add(loadedFont);
+          gameRunner.run();
+        });
+      });  
     });
   </script>
 </head>

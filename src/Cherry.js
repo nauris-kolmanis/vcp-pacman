@@ -87,7 +87,7 @@ Cherry.prototype.draw = function (ctx) {
   
   if (this.isEaten()) {
     ctx.fillStyle = "#aaa";
-    ctx.font = `bold ${calculateScale(12)}px 'Lucida Console', Monaco, monospace`
+    ctx.font = `${calculateScale(16)}px ${FONT}`
     x -= 4;
     y += 12;
     ctx.fillText(CHERRY_VALUE, x, y);

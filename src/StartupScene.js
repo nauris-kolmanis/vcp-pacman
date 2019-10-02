@@ -45,14 +45,17 @@ StartupScene.prototype.getY = function () {
 };
 
 StartupScene.prototype._drawTitle = function (ctx) {
-  var width = calculateScale(285)
+  var width = calculateScale(285);
   var x = parseInt(ctx.canvas.style.width) / 2 - width / 2;
 
   ImageManager.drawImage(ctx, 'title', x, calculateScale(20), null, width, calculateScale(160));
 };
 
 StartupScene.prototype._drawControlsHelp = function (ctx) {
+  var width = calculateScale(187);
+  var x = parseInt(ctx.canvas.style.width) / 2 - width / 2;
+
   ctx.fillStyle = "#aaa";
-  ctx.font = `bold ${calculateScale(14)}px 'Lucida Console', Monaco, monospace`
-  ctx.fillText("CONTROL: ARROW KEYS", calculateScale(187), calculateScale(320));
+  ctx.font = `${calculateScale(20)}px ${FONT}`
+  ctx.fillText("Izmanto    bultinas!", x, calculateScale(320));
 };

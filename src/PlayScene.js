@@ -85,8 +85,8 @@ PlayScene.prototype._drawScore = function (ctx) {
   var SCORE_X = calculateScale(55)
   var SCORE_Y = calculateScale(30)
   ctx.fillStyle = "#aaa";
-  ctx.font = `bold ${calculateScale(14)}px 'Lucida Console', Monaco, monospace`
-  var text = "SCORE: " + this._score;
+  ctx.font = `${calculateScale(18)}px ${FONT}`
+  var text = "SCORE:    " + this._score;
   ctx.fillText(text, SCORE_X, SCORE_Y);
 };
 
