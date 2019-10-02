@@ -1,8 +1,7 @@
 TODO
 =====================================
-- Images
 - Character selection improvements
-- Cycle through image sets in startup scene
+- Increase scale to precisely fit browser window width or height
 - Fix tests
 
 JavaScript/HTML5 remake of the Pacman
