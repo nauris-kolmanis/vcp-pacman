@@ -52,8 +52,6 @@ var ImageManager = (function() {
     'clyde_vulnerable_2b',
     
     'power_pellet',
-      
-    'cherry',
   ];
 
   var genericNames = [
@@ -76,14 +74,13 @@ var ImageManager = (function() {
     'eyes_r',
     'eyes_u',
     'eyes_d',
-      
-    'power_pellet',
+  
     'pellet',
 
     'cherry',
   ];
 
-  names = imageSetNames.concat(genericNames);
+  names = [];
 
   for (var i in imageSetNames) {
     for (var j in IMAGESET_MAP) {
@@ -109,10 +106,6 @@ var ImageManager = (function() {
     }
 
     return null;
-  };
-
-  var getOriginalImage = function (name) {
-    return images[name];
   };
   
   return {
@@ -141,7 +134,7 @@ var ImageManager = (function() {
     },
 
     drawImage: function (ctx, name, x, y, scene) {
-      ctx.drawImage(getImage(name, scene) || getOriginalImage(name), x, y, TILE_SIZE, TILE_SIZE);
+      ctx.drawImage(getImage(name, scene), x, y, TILE_SIZE, TILE_SIZE);
     }
   };
 })();
