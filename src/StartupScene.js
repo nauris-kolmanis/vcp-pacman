@@ -12,7 +12,7 @@ function StartupScene(game) {
   this._pacman.setStrategy(new PacmanStartupSceneStrategy(this._pacman, this));
   this._pacman.setCurrentSpeed(calculateSpeed(4));
   this._pacman.setSpeed(calculateSpeed(4));
-  this._pacman.setPosition(new Position(calculateScale(90), calculateScale(170)));
+  this._pacman.setPosition(new Position(calculateScale(90), calculateScale(185)));
   this._pacman.setDirection(DIRECTION_RIGHT);
 }
 
@@ -48,11 +48,11 @@ StartupScene.prototype._drawTitle = function (ctx) {
   var width = calculateScale(285)
   var x = parseInt(ctx.canvas.style.width) / 2 - width / 2;
 
-  ImageManager.drawImage(ctx, 'title', x, calculateScale(0), null, width, calculateScale(160));
+  ImageManager.drawImage(ctx, 'title', x, calculateScale(20), null, width, calculateScale(160));
 };
 
 StartupScene.prototype._drawControlsHelp = function (ctx) {
   ctx.fillStyle = "#aaa";
   ctx.font = `bold ${calculateScale(14)}px 'Lucida Console', Monaco, monospace`
-  ctx.fillText("CONTROL: ARROW KEYS", calculateScale(187), calculateScale(300));
+  ctx.fillText("CONTROL: ARROW KEYS", calculateScale(187), calculateScale(320));
 };
