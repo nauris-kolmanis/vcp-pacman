@@ -3,10 +3,14 @@ IMAGESET_MAP[KEY_1] = IMAGESET_ANSIS;
 IMAGESET_MAP[KEY_2] = IMAGESET_KRISTINE;
 IMAGESET_MAP[KEY_3] = IMAGESET_EDAVARDI;
 
+var PACMAN_SHOWTIME_DURATION = 25;
+
 function StartupScene(game) {
   this._game = game;
   this._pressEnterText = new PressEnterText();
   this._imageSet = IMAGESET_MAP[KEY_1];
+
+  this._timer = 0;
   
   this._pacman = new Pacman(this, game);
   this._pacman.setStrategy(new PacmanStartupSceneStrategy(this._pacman, this));
@@ -27,6 +31,21 @@ StartupScene.prototype.keyPressed = function (key) {
 StartupScene.prototype.tick = function () {
   this._pressEnterText.tick();
   this._pacman.tick();
+
+  this._timer++;
+
+  if (this._timer >= PACMAN_SHOWTIME_DURATION) {
+    var imageSets = Object.values(IMAGESET_MAP);
+    var currentIndex = imageSets.indexOf(this._imageSet);
+
+    if (imageSets[currentIndex + 1] !== undefined) {
+      this._imageSet = imageSets[currentIndex + 1];
+    } else {
+      this._imageSet = imageSets[0];
+    }
+    
+    this._timer = 0;
+  }
 };
 
 StartupScene.prototype.draw = function (ctx) {

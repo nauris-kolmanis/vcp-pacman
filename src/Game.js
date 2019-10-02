@@ -5,7 +5,7 @@ var FONT = "'ArcadeClassic', 'Lucida Console', Monaco, monospace";
 
 var SCALE_RATIO = window.innerWidth < window.innerHeight ? window.innerWidth / BASE_WIDTH : window.innerHeight / BASE_HEIGHT;
 SCALE_RATIO = Math.floor(SCALE_RATIO);
-var SPEED_RATIO = SCALE_RATIO;
+var SPEED_RATIO = Math.floor(SCALE_RATIO);
 
 var IMAGESET_ANSIS = 'ansis';
 var IMAGESET_KRISTINE = 'kristine';
