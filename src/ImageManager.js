@@ -78,6 +78,8 @@ var ImageManager = (function() {
     'pellet',
 
     'cherry',
+
+    'title',
   ];
 
   names = [];
@@ -93,7 +95,7 @@ var ImageManager = (function() {
   }
 
   var getImage = function (name, scene) {
-    var customizedName = scene._imageSet ? `${NAME_PREFIX}_${scene._imageSet}_${name}` : null;
+    var customizedName = scene && scene._imageSet ? `${NAME_PREFIX}_${scene._imageSet}_${name}` : null;
 
     if (customizedName !== null && images.hasOwnProperty(customizedName)) {
       return images[customizedName];
@@ -101,7 +103,7 @@ var ImageManager = (function() {
 
     customizedName = `${NAME_PREFIX}_${name}`;
 
-    if (scene._imageSet && images.hasOwnProperty(customizedName)) {
+    if (images.hasOwnProperty(customizedName)) {
       return images[customizedName];
     }
 
@@ -133,8 +135,12 @@ var ImageManager = (function() {
       }
     },
 
-    drawImage: function (ctx, name, x, y, scene) {
-      ctx.drawImage(getImage(name, scene), x, y, TILE_SIZE, TILE_SIZE);
+    drawImage: function (ctx, name, x, y, scene, width, height) {
+      var image = getImage(name, scene);
+
+      if (image !== null) {
+        ctx.drawImage(getImage(name, scene), x, y, width || TILE_SIZE, height || TILE_SIZE);
+      }
     }
   };
 })();

@@ -12,7 +12,7 @@ function StartupScene(game) {
   this._pacman.setStrategy(new PacmanStartupSceneStrategy(this._pacman, this));
   this._pacman.setCurrentSpeed(calculateSpeed(4));
   this._pacman.setSpeed(calculateSpeed(4));
-  this._pacman.setPosition(new Position(calculateScale(90), calculateScale(160)));
+  this._pacman.setPosition(new Position(calculateScale(90), calculateScale(170)));
   this._pacman.setDirection(DIRECTION_RIGHT);
 }
 
@@ -45,9 +45,10 @@ StartupScene.prototype.getY = function () {
 };
 
 StartupScene.prototype._drawTitle = function (ctx) {
-  ctx.fillStyle = "#000";
-  ctx.font = `bold ${calculateScale(70)}px 'Lucida Console', Monaco, monospace`
-  ctx.fillText("VCPac-man", calculateScale(76), calculateScale(150));
+  var width = calculateScale(285)
+  var x = parseInt(ctx.canvas.style.width) / 2 - width / 2;
+
+  ImageManager.drawImage(ctx, 'title', x, calculateScale(0), null, width, calculateScale(160));
 };
 
 StartupScene.prototype._drawControlsHelp = function (ctx) {
