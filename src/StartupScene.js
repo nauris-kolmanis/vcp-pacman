@@ -21,9 +21,7 @@ function StartupScene(game) {
 }
 
 StartupScene.prototype.keyPressed = function (key) {
-  if (key == KEY_ENTER) {
-    this._game.setScene(new PlayScene(this._game));
-  } else if (key == KEY_1 || key == KEY_2 || key == KEY_3) {
+  if (key == KEY_1 || key == KEY_2 || key == KEY_3) {
     this._game.setScene(new PlayScene(this._game, null, IMAGESET_MAP[key]));
   }
 };

@@ -1,9 +1,29 @@
+@font-face {
+  font-family: ArcadeClassic;
+  src: url(../fonts/arcadeclassic.ttf);
+}
+
 body {
   background-color: white;
   margin-top: 30px;
   text-align: center;
+  color: #aaa;
+  font-family: 'ArcadeClassic','Lucida Console', Monaco, monospace;
 }
 #main {
-  display: inline;
+  display: inline-block;
   margin: 0 auto;
+  position: relative;
+}
+.fullscreen-toggle-container {
+  position: absolute;
+  top: 18px;
+  right: 90px;
+  font-size: 26px;
+}
+.fullscreen-toggle {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
 }

@@ -4,6 +4,8 @@ var CANVAS_HEIGHT = calculateScale(BASE_HEIGHT);
 
 var DEVICE_RATIO = window.devicePixelRatio;
 
+var CANVAS_ID = 'canvas';
+
 function GameRunner() {
   this._ctx = this._createCanvasContext();
   this._ctx.scale(DEVICE_RATIO, DEVICE_RATIO);
@@ -25,7 +27,6 @@ GameRunner.prototype.run = function () {
 };
 
 GameRunner.prototype._createCanvasContext = function () {
-  var CANVAS_ID = 'canvas';
   $('<canvas id="' + CANVAS_ID + '" width="' + (CANVAS_WIDTH * DEVICE_RATIO) + '" height="' + (CANVAS_HEIGHT * DEVICE_RATIO) + '" style="width: ' + CANVAS_WIDTH + 'px; height: ' + CANVAS_HEIGHT + 'px;"></canvas>').appendTo('#main');
   var canvas = document.getElementById(CANVAS_ID);
   return canvas.getContext('2d');
