@@ -16,7 +16,7 @@ function StartupScene(game) {
   this._pacman.setStrategy(new PacmanStartupSceneStrategy(this._pacman, this));
   this._pacman.setCurrentSpeed(calculateSpeed(4));
   this._pacman.setSpeed(calculateSpeed(4));
-  this._pacman.setPosition(new Position(calculateScale(90), calculateScale(185)));
+  this._pacman.setPosition(new Position(calculateScale(90), calculateScale(215)));
   this._pacman.setDirection(DIRECTION_RIGHT);
 }
 
