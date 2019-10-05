@@ -67,7 +67,7 @@ StartupScene.prototype._drawTitle = function (ctx) {
   var width = calculateScale(285);
   var x = parseInt(ctx.canvas.style.width) / 2 - width / 2;
 
-  ImageManager.drawImage(ctx, 'title', x, calculateScale(20), null, width, calculateScale(160));
+  ImageManager.drawImage(ctx, 'title', x, calculateScale(50), null, width, calculateScale(160));
 };
 
 StartupScene.prototype._drawControlsHelp = function (ctx) {
@@ -76,5 +76,5 @@ StartupScene.prototype._drawControlsHelp = function (ctx) {
 
   ctx.fillStyle = "#aaa";
   ctx.font = `${calculateScale(20)}px ${FONT}`
-  ctx.fillText("Izmanto    bultinas!", x, calculateScale(320));
+  ctx.fillText("Izmanto    bultinas!", x, calculateScale(350));
 };
