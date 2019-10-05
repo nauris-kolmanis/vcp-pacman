@@ -1,6 +1,6 @@
 var FPS = 24;
-var CANVAS_WIDTH = calculateScale(540);
-var CANVAS_HEIGHT = calculateScale(484);
+var CANVAS_WIDTH = calculateScale(BASE_WIDTH);
+var CANVAS_HEIGHT = calculateScale(BASE_HEIGHT);
 
 var DEVICE_RATIO = window.devicePixelRatio;
 
